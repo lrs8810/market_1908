@@ -23,4 +23,22 @@ class Market
     end
     vendor_sells_item
   end
+
+  def all_vendors_inventory
+    all_inventory = []
+    @vendors.each do |vendor|
+      all_inventory << vendor.inventory
+    end
+    all_inventory
+  end
+
+  def sorted_item_list
+    all_items = []
+    all_vendors_inventory.each do |hash|
+      hash.each do |key, value|
+        all_items << key
+      end
+    end
+    all_items.uniq.sort
+  end
 end
