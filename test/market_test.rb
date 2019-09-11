@@ -76,7 +76,6 @@ class MarketTest < Minitest::Test
   end
 
   def test_total_inventory
-    skip
     @vendor_1.stock("Peaches", 35)
     @vendor_1.stock("Tomatoes", 7)
     @vendor_2.stock("Banana Nice Cream", 50)
