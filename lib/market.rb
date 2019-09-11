@@ -34,9 +34,9 @@ class Market
 
   def sorted_item_list
     all_items = []
-    all_vendors_inventory.each do |hash|
-      hash.each do |key, value|
-        all_items << key
+    all_vendors_inventory.each do |vendor_inventory|
+      vendor_inventory.each do |item, quantity|
+        all_items << item
       end
     end
     all_items.uniq.sort
@@ -48,6 +48,17 @@ class Market
         total_inventory[item] += quantity
       end
       total_inventory
+    end
+  end
+
+  def sell(sold_item, sold_quantity)
+    # total_inventory.select do |item, quantity|
+    #   # require 'pry'; binding.pry
+      if sold_item == total_inventory[item] && sold_quantity <= quantity
+        return true
+      else
+        return false
+      end
     end
   end
 end
